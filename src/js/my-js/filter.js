@@ -11,12 +11,12 @@ window.addEventListener('load', () => {
 
     searchInput.addEventListener('keydown', function(e) {
         if (e.keyCode === 13) {
-            setLinkAndRerender()
+            setLinkAndRerender(searchInput.value, elements)
         }
     })
 
     searchBtn.onclick = () => {
-        setLinkAndRerender()
+        setLinkAndRerender(searchInput.value, elements)
     }
 
     function API(link) {
@@ -48,10 +48,10 @@ window.addEventListener('load', () => {
         return false
     }
 
-    function setLinkAndRerender() {
-        renderItems(searchInput.value, elements)
-        if (searchInput.value) {
-            window.history.pushState(null, null, `?search=${searchInput.value}`);
+    function setLinkAndRerender(searchText, elements) {
+        renderItems(searchText, elements)
+        if (searchText) {
+            window.history.pushState(null, null, `?search=${searchText}`);
         } else {
             window.history.pushState(null, null, '/');
         }
