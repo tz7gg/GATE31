@@ -1,13 +1,13 @@
-window.addEventListener('load', () => {
+window.addEventListener('load', async() => {
 
-    const elements = []
+    const elements = await getData()
     const searchBtn = document.querySelector('.filter__search__btn')
     const searchInput = document.querySelector('.filter__search__input')
-    const queryLink = 'https://jsonplaceholder.typicode.com/posts/?_start=0&_limit=7'
+    const wrap = document.querySelector('.filter__items')
 
     searchInput.value = window.location.search.replace('?search=', '').replace('%20', ' ')
 
-    API(queryLink)
+    renderItems(searchInput.value, elements)
 
     searchInput.addEventListener('keydown', function(e) {
         if (e.keyCode === 13) {
@@ -19,33 +19,12 @@ window.addEventListener('load', () => {
         setLinkAndRerender(searchInput.value, elements)
     }
 
-    function API(link) {
-        fetch(link)
-            .then((res) => res.json())
-            .then(
-                (result) => {
-                    result.forEach(el => {
-                        elements.push(el)
-                    })
-                    renderItems(searchInput.value, result)
-                },
-                (error) => {
-                    console.log(error);
-                }
-            );
-        return false
-    }
-
     function renderItems(searchText, elements) {
-        const wrap = document.querySelector('.filter__items')
         wrap.innerHTML = ''
-        elements.forEach(element => {
-            if (element.title.includes(searchText)) {
-                wrap.appendChild(createFilterItem(element.title, element.body, element.id))
-            }
-
+        const filteredElements = elements.filter(el => el.title.includes(searchText))
+        filteredElements.forEach(element => {
+            wrap.appendChild(createFilterItem(element.title, element.body, element.id))
         });
-        return false
     }
 
     function setLinkAndRerender(searchText, elements) {
@@ -55,6 +34,5 @@ window.addEventListener('load', () => {
         } else {
             window.history.pushState(null, null, '/');
         }
-        return false
     }
 })
