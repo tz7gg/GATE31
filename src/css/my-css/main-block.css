@@ -1,0 +1,14 @@
+body {
+    font-family: 'Golos';
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    font-size: 13px;
+    line-height: 148%;
+}
+
+header,
+main,
+footer {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+}

@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Golos';
+    src: url('../fonts/Golos-Text_Regular.woff2') format('woff2'), url('../fonts/Golos-Text_Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Golos-medium';
+    src: url('../fonts/Golos-Text_DemiBold.woff2') format('woff2'), url('../fonts/Golos-Text_DemiBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

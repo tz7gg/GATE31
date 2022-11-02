@@ -1,0 +1,84 @@
+.filter {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 320px;
+    margin: 0 auto;
+    &__search {
+        width: 100%;
+        &__input {
+            width: 100%;
+            border-radius: 8px;
+            outline: none;
+            padding: 4px 12px;
+            border: 1px solid #C0C0C0;
+            transition: all 0.2s;
+            &:focus {
+                border-color: #4169E1;
+            }
+            &:hover {
+                border-color: #4169E1;
+            }
+        }
+        &__btn {
+            margin-top: 12px;
+            width: 100%;
+            border-radius: 8px;
+            background-color: #4682B4;
+            color: #fff;
+            text-align: center;
+            padding: 6px 8px;
+            border: 1px solid #4682B4;
+            transition: all 0.2s;
+            cursor: pointer;
+            &:hover {
+                background-color: #4169E1;
+            }
+        }
+    }
+    &__items {
+        margin-top: 12px;
+        margin-bottom: 12px;
+        border: 1px solid #C0C0C0;
+        &__item {
+            position: relative;
+            border-bottom: 1px solid #C0C0C0;
+            &:last-child {
+                border: none;
+            }
+            &__wrap {
+                padding: 12px 12px 45px 12px;
+                transition: all 0.2s;
+                &__title {
+                    font-family: "Golos-medium";
+                    margin-bottom: 12px;
+                    font-size: 16px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    transition: all 0.2s;
+                    cursor: help;
+                }
+                &__text {
+                    transition: all 0.2s;
+                }
+            }
+            &__checkbox {
+                width: 15px;
+                height: 15px;
+                margin: 0px;
+                position: absolute;
+                bottom: 15px;
+                left: 12px;
+                &:checked+.filter__items__item__wrap {
+                    background-color: rgb(75, 75, 75);
+                }
+                &:checked+.filter__items__item__wrap .filter__items__item__wrap__title {
+                    color: #fff;
+                }
+                &:checked+.filter__items__item__wrap .filter__items__item__wrap__text {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
