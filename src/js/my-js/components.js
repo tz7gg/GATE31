@@ -27,12 +27,12 @@ function createFilterItem(titleText, bodyText, id) {
 
     checkbox.onclick = () => {
         if (checkbox.checked) {
-            localStorage.setItem(id, true);
+            localStorage.setItem(id + title.innerText, true);
         } else {
-            localStorage.setItem(id, false);
+            localStorage.setItem(id + title.innerText, false);
         }
     }
-    if (localStorage.getItem(id) === 'true') {
+    if (localStorage.getItem(id + title.innerText) === 'true') {
         checkbox.checked = true
     }
 
