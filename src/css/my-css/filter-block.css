@@ -1,17 +1,19 @@
 .filter {
     padding: 10px;
     box-sizing: border-box;
-    width: 320px;
+    max-width: 952px;
     margin: 0 auto;
     &__search {
-        width: 100%;
+        display: flex;
         &__input {
             width: 100%;
+            width: 300px;
             border-radius: 8px;
             outline: none;
             padding: 4px 12px;
             border: 1px solid #C0C0C0;
             transition: all 0.2s;
+            margin-right: 16px;
             &:focus {
                 border-color: #4169E1;
             }
@@ -20,34 +22,41 @@
             }
         }
         &__btn {
-            margin-top: 12px;
-            width: 100%;
             border-radius: 8px;
             background-color: #4682B4;
             color: #fff;
             text-align: center;
-            padding: 6px 8px;
+            padding: 6px 16px;
             border: 1px solid #4682B4;
             transition: all 0.2s;
             cursor: pointer;
+            display: block;
             &:hover {
                 background-color: #4169E1;
             }
         }
     }
     &__items {
-        margin-top: 12px;
-        margin-bottom: 12px;
-        border: 1px solid #C0C0C0;
+        margin-left: -8px;
+        margin-right: -8px;
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
         &__item {
             position: relative;
-            border-bottom: 1px solid #C0C0C0;
-            &:last-child {
-                border: none;
+            border: 1px solid #C0C0C0;
+            margin-bottom: 16px;
+            margin-right: 8px;
+            margin-left: 8px;
+            border-radius: 4px;
+            width: calc((100% - 3 * 16px)/ 3);
+            @media (max-width: 768px) {
+                width: calc(100% - 16px);
             }
             &__wrap {
                 padding: 12px 12px 45px 12px;
                 transition: all 0.2s;
+                height: 100%;
                 &__title {
                     font-family: "Golos-medium";
                     margin-bottom: 12px;
